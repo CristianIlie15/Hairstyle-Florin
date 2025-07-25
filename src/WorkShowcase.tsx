@@ -2,6 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
+// ✅ Importuri necesare pentru CSS Swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 type WorkShowcaseProps = {
   title?: string;
   description?: string;

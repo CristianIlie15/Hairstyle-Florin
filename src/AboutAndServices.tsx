@@ -119,8 +119,6 @@ const AboutAndServices: React.FC = () => {
         </div>
       </motion.div>
 
-// Eliminăm complet cardHover — nu mai e necesar
-
 {/* Services Section */}
 <div className="max-w-6xl mx-auto mt-20">
   <motion.h3
