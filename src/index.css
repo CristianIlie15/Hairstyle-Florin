@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root {
+
+}
+html, body {
+  overflow-x: hidden;
+}
+
+@theme {
+  --color-mint-500: oklch(0.72 0.11 178);
+  --breakpoint-md2:640px
+}
+
