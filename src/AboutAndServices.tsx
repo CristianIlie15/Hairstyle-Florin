@@ -51,11 +51,6 @@ const renderStars = (rating: number) => {
   );
 };
 
-const cardHover = {
-  scale: 1.03,
-  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-  transition: { duration: 0.3, ease: "easeOut" },
-};
 
 const AboutAndServices: React.FC = () => {
   return (
@@ -124,62 +119,65 @@ const AboutAndServices: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Services Section */}
-      <div className="max-w-6xl mx-auto mt-20">
-        <motion.h3
-          className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          Servicii și Prețuri
-        </motion.h3>
+// Eliminăm complet cardHover — nu mai e necesar
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={cardHover}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              viewport={{ once: true }}
-              tabIndex={0}
-              role="button"
-              aria-label={`Serviciu: ${service.name}, Preț: ${service.price}, Rating: ${service.rating.toFixed(2)}`}
-            >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0">{service.icon}</div>
-                <h4 className="text-xl font-semibold text-neutral-800 dark:text-white">{service.name}</h4>
-                <span className="ml-auto text-sm font-medium text-neutral-500 dark:text-neutral-400">{service.price}</span>
-              </div>
-              {service.description && (
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  {service.description}
-                </p>
-              )}
+{/* Services Section */}
+<div className="max-w-6xl mx-auto mt-20">
+  <motion.h3
+    className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ delay: 0.2, duration: 0.6 }}
+  >
+    Servicii și Prețuri
+  </motion.h3>
 
-              {/* Rating */}
-              {renderStars(service.rating)}
-
-              {/* Text introductiv pentru buton */}
-              <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                Rezervă acum o programare pentru acest serviciu.
-              </p>
-
-              {/* Butonul */}
-              <a
-                href="/programare"
-                className="self-start px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold text-sm hover:from-pink-600 hover:to-purple-700 transition-all focus:outline-none focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-700"
-                aria-label={`Rezervă ${service.name}`}
-              >
-                Programează-te
-              </a>
-            </motion.div>
-          ))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+    {services.map((service, index) => (
+      <motion.div
+        key={index}
+        className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm hover:shadow-xl transition-shadow"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ delay: index * 0.1, duration: 0.4 }}
+        viewport={{ once: true }}
+        tabIndex={0}
+        role="button"
+        aria-label={`Serviciu: ${service.name}, Preț: ${service.price}, Rating: ${service.rating.toFixed(2)}`}
+      >
+        <div className="flex items-center gap-4">
+          <div className="flex-shrink-0">{service.icon}</div>
+          <h4 className="text-xl font-semibold text-neutral-800 dark:text-white">{service.name}</h4>
+          <span className="ml-auto text-sm font-medium text-neutral-500 dark:text-neutral-400">{service.price}</span>
         </div>
-      </div>
+
+        {service.description && (
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            {service.description}
+          </p>
+        )}
+
+        {/* Rating */}
+        {renderStars(service.rating)}
+
+        {/* Text introductiv pentru buton */}
+        <p className="text-xs text-neutral-500 dark:text-neutral-400">
+          Rezervă acum o programare pentru acest serviciu.
+        </p>
+
+        {/* Butonul */}
+        <a
+          href="/programare"
+          className="self-start px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold text-sm hover:from-pink-600 hover:to-purple-700 transition-all focus:outline-none focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-700"
+          aria-label={`Rezervă ${service.name}`}
+        >
+          Programează-te
+        </a>
+      </motion.div>
+    ))}
+  </div>
+</div>
     </section>
   );
 };

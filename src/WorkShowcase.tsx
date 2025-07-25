@@ -2,12 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
-// CSS corecte pentru Swiper v11+
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-
 type WorkShowcaseProps = {
   title?: string;
   description?: string;
