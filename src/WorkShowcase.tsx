@@ -2,28 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 
 type WorkShowcaseProps = {
   title?: string;
-  description?: string;
+  description?: React.ReactNode;  // schimbat aici
   images: { src: string; alt: string }[];
 };
 
 const WorkShowcase: React.FC<WorkShowcaseProps> = ({
-  title = "Lucrările noastre",
-  description = "O selecție de tunsori realizate cu grijă și pasiune de prietenul meu.",
+  title = "Tunsori care vorbesc de la sine",
+  description = (
+    <div className=" mt-15 md:mt-18">
+      Fiecare tunsoare din galeria de mai jos e realizată de mine, cu atenție, răbdare și respect pentru stilul fiecărui client. Lucrez cu cele mai moderne tehnici – de la fade-uri curate până la tunsori clasice reinterpretate. Eu și colegii mei de la{" "}
+      <span className="font-extrabold gradient-text">Barber District</span> credem că fiecare client merită o experiență relaxantă și un rezultat care îl face să zâmbească. Dacă vrei o schimbare sau doar o întreținere, te așteptăm cu{" "}
+      <span className=" text-indigo-300 font-bold">vibe bun și seriozitate</span>.
+    </div>
+  ),
   images,
 }) => {
   const [current, setCurrent] = useState(0);
   const total = images.length;
   const timerRef = useRef<number | null>(null);
 
-  // Funcție care pornește sau resetează timerul autoplay
   const resetTimer = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = window.setTimeout(() => {
       setCurrent((prev) => (prev + 1) % total);
-    }, 3000); // 3 secunde autoplay
+    }, 3000);
   };
 
-  // La fiecare schimbare de slide, resetăm timer-ul
   useEffect(() => {
     resetTimer();
     return () => {
@@ -31,7 +35,6 @@ const WorkShowcase: React.FC<WorkShowcaseProps> = ({
     };
   }, [current, total]);
 
-  // Când userul apasă pe bulină
   const goToSlide = (index: number) => {
     setCurrent(index);
     resetTimer();
@@ -65,20 +68,33 @@ const WorkShowcase: React.FC<WorkShowcaseProps> = ({
           ))}
         </div>
 
-        {/* Buline */}
+        {/* Buline colorate pe mobil, albe pe md+ */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              aria-label={`Slide ${index + 1}`}
-              className={`w-3 h-3 rounded-full ${
-                index === current
-                  ? "bg-white"
-                  : "bg-white/40 hover:bg-white/60 transition"
-              }`}
-            />
-          ))}
+          {images.map((_, index) => {
+            const colors = [
+              "bg-blue-500",
+              "bg-pink-500",
+              "bg-yellow-400",
+              "bg-green-500",
+              "bg-red-500",
+              "bg-purple-500",
+            ];
+            const color = colors[index % colors.length];
+            const isActive = index === current;
+
+            return (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                aria-label={`Slide ${index + 1}`}
+                className={`
+                  w-3 h-3 rounded-full transition duration-200 hover:scale-110
+                  ${color} 
+                  md:${isActive ? "bg-white ring-2 ring-white" : "bg-white/40 hover:bg-white/60 ring-0"}
+                `}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

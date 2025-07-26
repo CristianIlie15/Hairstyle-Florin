@@ -74,9 +74,13 @@ const AboutAndServices: React.FC = () => {
 
         <div className="md:order-1 w-full md:w-1/2 text-center md:text-left">
           <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight">Despre Salonul Nostru</h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl mx-auto md:mx-0">
-            Oferim servicii profesionale de hairstyle și grooming într-un mediu prietenos și relaxant.
-            Cu o atenție deosebită pentru detalii și stil, transformăm fiecare vizită într-o experiență.
+          <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl mx-auto md:mx-0 my-5 mt-10 md:my-8 mt-16">
+        Servicii de hairstyle și grooming executate cu profesionalism și grijă pentru fiecare detaliu.
+        Punem accent pe calitate, precizie și o atmosferă relaxantă în care te poți simți confortabil.
+        Fiecare tunsoare este adaptată stilului tău, folosind tehnici moderne și o abordare personalizată.
+        Împreună cu colegii mei de la <span className="font-extrabold gradient-text">Barber District</span>, transformăm fiecare vizită într-o experiență completă – cu 
+        <span className="font-bold text-indigo-400"> respect, atenție și seriozitate.</span>
+        Pentru noi, un client mulțumit nu e doar o reușită, ci o promisiune onorată
           </p>
         </div>
       </motion.div>
@@ -90,51 +94,51 @@ const AboutAndServices: React.FC = () => {
       >
         <div className="flex gap-6">
           <a
-            href="https://www.instagram.com/USERNAME"
+            href="https://www.instagram.com/stanflorinnn/?igsh=MTNuNnJyOWtmejN0bQ%3D%3D#"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-full hover:scale-110 hover:bg-pink-500 transition-transform duration-300 shadow-md flex items-center justify-center"
+            className="p-4 bg-pink-500 md:bg-neutral-100 dark:md:bg-neutral-800 rounded-full hover:scale-110 hover:bg-pink-500 transition-transform duration-300 shadow-md flex items-center justify-center"
           >
             <FaInstagram className="text-2xl text-neutral-700 dark:text-white" />
           </a>
           <a
-            href="https://www.facebook.com/USERNAME"
+            href="https://www.facebook.com/florin.stan.56481379"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-full hover:scale-110 hover:bg-blue-600 transition-transform duration-300 shadow-md flex items-center justify-center"
+            className="p-4 bg-blue-600 md:bg-neutral-100 dark:md:bg-neutral-800 rounded-full hover:scale-110 hover:bg-blue-600 transition-transform duration-300 shadow-md flex items-center justify-center"
           >
             <FaFacebookF className="text-2xl text-neutral-700 dark:text-white" />
           </a>
           <a
-            href="https://wa.me/40712345678"
+            href="https://wa.me/40727880869"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
-            className="p-4 bg-neutral-100 dark:bg-neutral-800 rounded-full hover:scale-110 hover:bg-green-500 transition-transform duration-300 shadow-md flex items-center justify-center"
+            className="p-4 bg-green-500 md:bg-neutral-100 dark:md:bg-neutral-800 rounded-full hover:scale-110 hover:bg-green-500 transition-transform duration-300 shadow-md flex items-center justify-center"
           >
             <FaWhatsapp className="text-2xl text-neutral-700 dark:text-white" />
           </a>
         </div>
       </motion.div>
 
-{/* Services Section */}
-<div className="max-w-6xl mx-auto mt-20">
-  <motion.h3
-    className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ delay: 0.2, duration: 0.6 }}
-  >
-    Servicii și Prețuri
-  </motion.h3>
+      {/* Services Section */}
+    <div className="max-w-6xl mx-auto mt-20">
+      <motion.h3
+        className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        Servicii și Prețuri
+      </motion.h3>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-    {services.map((service, index) => (
-      <motion.div
-        key={index}
-        className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm hover:shadow-xl transition-shadow"
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+       {services.map((service, index) => (
+         <motion.div
+            key={index}
+           className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm hover:shadow-xl transition-shadow"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         whileHover={{ scale: 1.03 }}
@@ -159,7 +163,6 @@ const AboutAndServices: React.FC = () => {
         {/* Rating */}
         {renderStars(service.rating)}
 
-        {/* Text introductiv pentru buton */}
         <p className="text-xs text-neutral-500 dark:text-neutral-400">
           Rezervă acum o programare pentru acest serviciu.
         </p>

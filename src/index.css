@@ -15,3 +15,17 @@ html, body {
   --breakpoint-md2:640px
 }
 
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    rgb(43, 127, 255) 0%,      
+    rgb(61, 46, 8) 80%      
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+

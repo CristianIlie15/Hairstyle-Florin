@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="max-w-6xl mx-auto text-center space-y-6">
-        {/* Nume și slogan */}
         <div>
           <h3 className="text-2xl font-bold tracking-wide select-text">
             Salon Florin
@@ -26,9 +25,9 @@ const Footer: React.FC = () => {
 
         {/* Contact info */}
         <div className="text-sm space-y-1 select-text">
-          <p>📞 Telefon: <a href="tel:+40712345678" className="underline hover:text-neutral-900 dark:hover:text-white transition">+40 712 345 678</a></p>
-          <p>📍 Adresă: Strada Exemplu, Nr. 10, București</p>
-          <p>✉️ Email: <a href="mailto:contact@salonflorin.ro" className="underline hover:text-neutral-900 dark:hover:text-white transition">contact@salonflorin.ro</a></p>
+          <p>📞 Telefon: <a href="tel:+40727880869" className="underline hover:text-indigo-300 dark:hover:text-white transition">+40 727 880 869</a></p>
+          <p>🏢 Adresă: BadBoys, Strada Rudului 97, Ploiești 100300</p>
+          <p>✉️ Email: <a href="mailto:contact@salonflorin.ro" className="underline hover:text-indigo-300 dark:hover:text-white transition">contact@salonflorin.ro</a></p>
         </div>
 
         {/* Copyright */}
