@@ -80,7 +80,7 @@ function App() {
 
 <motion.a
   href="#action"
-  className="inline-block mt-6 mx-auto md:mx-0 px-6 py-3 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+  className="inline-block mt-6 mx-auto md:mx-0 px-6 md:px-8 py-3 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
   style={{
     backgroundImage: "linear-gradient(to right, rgb(43,127,255), rgb(61,46,8))",
   }}

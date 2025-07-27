@@ -14,7 +14,7 @@ const WorkShowcase: React.FC<WorkShowcaseProps> = ({
       răbdare și respect pentru stilul fiecărui client. Lucrez cu cele mai
       moderne tehnici – de la fade-uri curate până la tunsori clasice
       reinterpretate. Eu și colegii mei de la{" "}
-      <span className="font-extrabold gradient-text">Barber District</span>{" "}
+      <span className="font-extrabold gradient-text">BadBoys</span>{" "}
       credem că fiecare client merită o experiență relaxantă și un rezultat
       care îl face să zâmbească. Dacă vrei o schimbare sau doar o întreținere,
       te așteptăm cu{" "}
@@ -34,13 +34,15 @@ const WorkShowcase: React.FC<WorkShowcaseProps> = ({
     "bg-green-500",
     "bg-red-500",
     "bg-purple-500",
+    "bg-amber-400",
+    "bg-indigo-600",
   ];
 
   const resetTimer = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     timerRef.current = window.setTimeout(() => {
       setCurrent((prev) => (prev + 1) % total);
-    }, 2200);
+    }, 1920);
   };
 
   useEffect(() => {

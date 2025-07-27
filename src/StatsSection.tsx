@@ -96,8 +96,8 @@ const StatsSection: React.FC = () => {
       className="relative overflow-hidden py-20 px-6 sm:px-10 lg:px-24 bg-gray-50 dark:bg-neutral-950"
     >
       {/* Bubble Effect */}
-      <div className="pointer-events-none absolute -top-40 -left-40 w-[680px] h-[520px] bg-indigo-400 dark:bg-indigo-600 opacity-20 blur-3xl rounded-full animate-pulse-slow z-0" />
-      <div className="pointer-events-none absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-amber-400 dark:bg-amber-600 opacity-20 blur-3xl rounded-full animate-pulse-slow z-0" />
+      <div className="pointer-events-none absolute -top-40 -left-40 w-[680px] h-[520px] bg-blue-500 dark:bg-blue-700 opacity-20 blur-3xl rounded-full animate-pulse-slow z-0" />
+      <div className="pointer-events-none absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-amber-500 dark:bg-amber-700 opacity-20 blur-3xl rounded-full animate-pulse-slow z-0" />
 
       {/* Cards */}
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md2:grid-cols-2 lg:grid-cols-4 gap-10 place-items-center">

@@ -108,7 +108,7 @@ const AboutAndServices: React.FC = () => {
   <div className="md:w-1/2 px-6 md:p-2 my">
     <h2 className="text-3xl font-bold mb-6 my-10 text-center md:text-left mb-12 md:mb-18">Despre mine</h2>
     <p className="text-lg leading-relaxed mb-4 mt-8">
-      Salut! Sunt <span className = "gradient-text font-bold"> Florin</span>, pasionat de arta tunsului și styling-ului masculin. Cu o experiență solidă și o atenție deosebită la detalii, mă asigur că fiecare client pleacă mulțumit, cu un look care îi reflectă personalitatea.
+      Salut! Sunt <span className = "gradient-text font-extrabold text-xl"> Florin</span>, pasionat de arta tunsului și styling-ului masculin. Cu o experiență solidă și o atenție deosebită la detalii, mă asigur că fiecare client pleacă mulțumit, cu un look care îi reflectă personalitatea.
     </p>
     <p className="text-lg leading-relaxed mb-4">
       Stilurile mele variază de la tunsori clasice, elegante, până la cele moderne, urbane, toate realizate cu precizie și profesionalism. Fiecare tunsoare este adaptată nevoilor și dorințelor tale, pentru un rezultat unic și impecabil.
@@ -143,22 +143,13 @@ const AboutAndServices: React.FC = () => {
           >
             <FaFacebookF className="text-2xl text-neutral-700 dark:text-white" />
           </a>
-          <a
-            href="https://wa.me/40727880869"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-            className="p-4 bg-green-500 md:bg-neutral-100 dark:md:bg-neutral-800 rounded-full hover:scale-110 hover:bg-green-500 transition-transform duration-300 shadow-md flex items-center justify-center"
-          >
-            <FaWhatsapp className="text-2xl text-neutral-700 dark:text-white" />
-          </a>
         </div>
       </motion.div>
 
       {/* Servicii și prețuri */}
       <div className="max-w-6xl mx-auto " id="action">
         <motion.h3
-          className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight mb-20  "
+          className="text-2xl sm:text-3xl font-bold text-center tracking-tight mb-20 md:mb-26 lg:mb-32 mt-20 "
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -166,7 +157,7 @@ const AboutAndServices: React.FC = () => {
           Servicii și Prețuri
         </motion.h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 ">
           {services.map((service, index) => (
             <motion.div
               key={index}

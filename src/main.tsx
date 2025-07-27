@@ -19,9 +19,11 @@ const images = [
   { src: "/Carusel/photo8.webp", alt: "Tunsoare stylish" },
   { src: "/Carusel/photo9.webp", alt: "Tunsoare stylish" },
   { src: "/Carusel/photo10.webp", alt: "Tunsoare stylish" },
+  { src: "/Carusel/photo4.webp", alt: "Tunsoare stylish" },
   { src: "/Carusel/photo11.webp", alt: "Tunsoare stylish" },
-
-
+  { src: "/Carusel/photo12.webp", alt: "Tunsoare stylish" },
+  { src: "/Carusel/photo13.webp", alt: "Tunsoare stylish" },
+  { src: "/Carusel/photo14.webp", alt: "Tunsoare stylish" },
 ];
 
 createRoot(document.getElementById('root')!).render(
