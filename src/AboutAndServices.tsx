@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaUserTie, FaShower, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa6";
+import { FaUserTie, FaShower, FaInstagram, FaFacebookF } from "react-icons/fa6";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { GiBeard } from "react-icons/gi";  
 import floarea from "./assets/Prices/floarea.jpg";
