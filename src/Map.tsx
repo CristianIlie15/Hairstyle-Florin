@@ -10,12 +10,12 @@ type MapCoverProps = {
 
 const MapCover: React.FC<MapCoverProps> = ({
   title = "Găsește-ne pe hartă",
-  subtitle = "Te așteptăm cu drag la salon!",
+  subtitle = "Te aștept cu drag la salon!",
   mapSrc,
   externalLink,
 }) => {
   return (
-    <section className="w-full py-20 px-6 sm:px-10 lg:px-24 bg-gradient-to-b from-neutral-100 via-gray-50 to-white dark:from-neutral-900 dark:via-neutral-950 dark:to-black">
+    <section className="w-full py-20 px-6 sm:px-10 lg:px-24 bg-gradient-to-b from-neutral-100 via-gray-50 to-white dark:from-neutral-900 dark:via-neutral-950 dark:to-black ">
       {/* Titlu și subtitlu */}
       <motion.div
         className="max-w-6xl mx-auto text-center mb-10"
@@ -34,7 +34,6 @@ const MapCover: React.FC<MapCoverProps> = ({
         )}
       </motion.div>
 
-      {/* Harta + efect alb-negru */}
       <motion.div
         className="group rounded-2xl overflow-hidden shadow-xl border border-neutral-200 dark:border-neutral-800 max-w-6xl mx-auto transition-all"
         initial={{ opacity: 0, scale: 0.95 }}

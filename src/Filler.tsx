@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "./assets/Hero/barberr.jpg";
+import backgroundImage from "./assets/Hero/barberr.webp";
 
 const FillerPage: React.FC = () => {
   return (

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import heroBG from "./assets/Hero/hero.jpg";
+import heroBG from "./assets/Hero/hero.webp";
 
 function App() {
-  // Varianta simplă de animații pentru toate elementele
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.15, duration: 0.6 } },
@@ -14,7 +13,7 @@ function App() {
   };
 
   return (
-    <section className="relative w-full min-h-[600px] md:min-h-[720px] overflow-hidden flex items-center">
+    <section className="relative w-full min-h-[700px] md:min-h-[800px] lg:min-h-[930px] overflow-hidden flex items-center">
       {/* Background blur image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm md:blur-none z-0"
@@ -79,15 +78,21 @@ function App() {
           ))}
         </motion.ul>
 
-        <motion.button
-          className="mt-6 mx-auto md:mx-0 text-sm sm:text-base bg-white text-black font-semibold px-4 py-2 sm:px-6 sm:py-2 rounded hover:bg-gray-200 transition"
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          Află mai mult
-        </motion.button>
+<motion.a
+  href="#action"
+  className="inline-block mt-6 mx-auto md:mx-0 px-6 py-3 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+  style={{
+    backgroundImage: "linear-gradient(to right, rgb(43,127,255), rgb(61,46,8))",
+  }}
+  variants={itemVariants}
+  whileHover={{ scale: 1.06 }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ type: "spring", stiffness: 300 }}
+>
+  Programează-te
+</motion.a>
+
+
       </motion.div>
     </section>
   );

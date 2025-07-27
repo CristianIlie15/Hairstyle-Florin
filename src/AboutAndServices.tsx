@@ -1,44 +1,80 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaFacebookF, FaWhatsapp, FaUserTie, FaShower } from "react-icons/fa6";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // stele pline, jumătate, goale
+import { FaUserTie, FaShower, FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa6";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { GiBeard } from "react-icons/gi";  
 import floarea from "./assets/Prices/floarea.jpg";
 
 type Service = {
   name: string;
+  duration: string;
   price: string;
   description?: string;
   icon: React.ReactNode;
-  rating: number; // adăugat rating
+  rating: number;
 };
 
 const services: Service[] = [
-  { name: "Tuns Clasic", price: "50 lei", description: "Tuns modern, adaptat formei feței.", icon: <FaStar className="text-3xl text-pink-500" />, rating: 4.75 },
-  { name: "Barbierit", price: "30 lei", description: "Tradițional și relaxant.", icon: <FaUserTie className="text-3xl text-blue-500" />, rating: 4.85 },
-  { name: "Tuns + Spălat", price: "65 lei", description: "Pachet complet pentru un look fresh.", icon: <FaShower className="text-3xl text-green-500" />, rating: 4.95 },
-  { name: "Styling Eveniment", price: "80 lei", description: "Pentru ocazii speciale.", icon: <FaStar className="text-3xl text-yellow-400" />, rating: 4.90 },
+  {
+    name: "Premium Pack",
+    duration: "1 h 30 min",
+    price: "150 lei",
+    description:
+      "Tuns complet, spălat, styling și barbă, inclusiv pensat brici",
+    icon: <FaUserTie />,
+    rating: 4.89,
+  },
+  {
+    name: "Tuns & Barbă",
+    duration: "1 h 10 min",
+    price: "110 lei",
+    description:
+      "Tuns profesional cu aranjare barbă și finisaje detaliate",
+    icon: <FaRegStar />,
+    rating: 4.82,
+  },
+  {
+    name: "Tuns",
+    duration: "45 min",
+    price: "80 lei",
+    description: "Tuns simplu, rapid și curat",
+    icon: <FaRegStar />,
+    rating: 4.77,
+  },
+  {
+    name: "Wash & Style",
+    duration: "30 min",
+    price: "30 lei",
+    description: "Spălat și aranjat pentru un look fresh",
+    icon: <FaShower />,
+    rating: 4.45,
+  },
+  {
+    name: "Barbă",
+    duration: "30 min",
+    price: "30 - 50 lei",
+    description:
+      "Îngrijire barbă cu tuns și conturare personalizată",
+    icon: <GiBeard />,
+    rating: 4.67,
+  },
 ];
 
-// Funcție care returnează stelele vizuale și rating-ul numeric
 const renderStars = (rating: number) => {
   const stars = [];
   const fullStars = Math.floor(rating);
   const decimal = rating - fullStars;
 
-  // Stele pline
   for (let i = 0; i < fullStars; i++) {
     stars.push(<FaStar key={"full" + i} className="text-yellow-400" />);
   }
 
-  // Stea jumătate dacă decimalul este între 0.25 și 0.75 (aprox)
   if (decimal >= 0.25 && decimal < 0.75) {
     stars.push(<FaStarHalfAlt key="half" className="text-yellow-400" />);
   } else if (decimal >= 0.75) {
-    // Dacă e aproape 1, punem o stea plină în plus
     stars.push(<FaStar key="extraFull" className="text-yellow-400" />);
   }
 
-  // Stele goale până la 5
   while (stars.length < 5) {
     stars.push(<FaRegStar key={"empty" + stars.length} className="text-yellow-400" />);
   }
@@ -51,43 +87,39 @@ const renderStars = (rating: number) => {
   );
 };
 
-
 const AboutAndServices: React.FC = () => {
   return (
     <section className="py-20 px-6 sm:px-10 lg:px-24 bg-white dark:bg-neutral-950 text-neutral-800 dark:text-white select-none">
-      {/* About Section */}
+      
+      {/* Despre mine */}
+<motion.div
+  className="max-w-6xl mx-auto mb-20 flex flex-col-reverse md:flex-row-reverse items-center gap-8"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  <img
+    src={floarea}
+    alt="Florin - Despre mine"
+    className="rounded-3xl w-full md:w-1/2 object-cover shadow-lg "
+    loading="lazy"
+  />
+  <div className="md:w-1/2 px-6 md:p-2 my">
+    <h2 className="text-3xl font-bold mb-6 my-10 text-center md:text-left mb-12 md:mb-18">Despre mine</h2>
+    <p className="text-lg leading-relaxed mb-4 mt-8">
+      Salut! Sunt <span className = "gradient-text font-bold"> Florin</span>, pasionat de arta tunsului și styling-ului masculin. Cu o experiență solidă și o atenție deosebită la detalii, mă asigur că fiecare client pleacă mulțumit, cu un look care îi reflectă personalitatea.
+    </p>
+    <p className="text-lg leading-relaxed mb-4">
+      Stilurile mele variază de la tunsori clasice, elegante, până la cele moderne, urbane, toate realizate cu precizie și profesionalism. Fiecare tunsoare este adaptată nevoilor și dorințelor tale, pentru un rezultat unic și impecabil.
+    </p>
+    <p className="text-lg leading-relaxed">
+      Sunt mândru să am mulți clienți fericiți, care revin mereu pentru calitatea serviciilor și atmosfera prietenoasă pe care o creez în salon. Hai să-ți ofer și ție o experiență care să te facă să te simți  <span className = "text-indigo-400 font-bold">încrezător și bine îngrijit ! </span>
+    </p>
+  </div>
+</motion.div >
       <motion.div
-        className="max-w-6xl mx-auto flex md:flex-row items-center gap-10 flex-col-reverse"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <div className="md:order-2 flex-shrink-0 w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl">
-          <img
-            src={floarea}
-            alt="Salon"
-            className="w-full h-[370px] sm:h-[400px] object-cover"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="md:order-1 w-full md:w-1/2 text-center md:text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight">Despre Salonul Nostru</h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl mx-auto md:mx-0 my-5 mt-10 md:my-8 mt-16">
-        Servicii de hairstyle și grooming executate cu profesionalism și grijă pentru fiecare detaliu.
-        Punem accent pe calitate, precizie și o atmosferă relaxantă în care te poți simți confortabil.
-        Fiecare tunsoare este adaptată stilului tău, folosind tehnici moderne și o abordare personalizată.
-        Împreună cu colegii mei de la <span className="font-extrabold gradient-text">Barber District</span>, transformăm fiecare vizită într-o experiență completă – cu 
-        <span className="font-bold text-indigo-400"> respect, atenție și seriozitate.</span>
-        Pentru noi, un client mulțumit nu e doar o reușită, ci o promisiune onorată
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Social Media Icons */}
-      <motion.div
-        className="max-w-6xl mx-auto mt-12 md:mt-16 flex justify-center"
+        className="max-w-6xl mx-auto mt-12 md:mt-16 flex justify-center mb-10 md:mb-16"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -123,62 +155,66 @@ const AboutAndServices: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Services Section */}
-    <div className="max-w-6xl mx-auto mt-20">
-      <motion.h3
-        className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        Servicii și Prețuri
-      </motion.h3>
-
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-       {services.map((service, index) => (
-         <motion.div
-            key={index}
-           className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm hover:shadow-xl transition-shadow"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.03 }}
-        transition={{ delay: index * 0.1, duration: 0.4 }}
-        viewport={{ once: true }}
-        tabIndex={0}
-        role="button"
-        aria-label={`Serviciu: ${service.name}, Preț: ${service.price}, Rating: ${service.rating.toFixed(2)}`}
-      >
-        <div className="flex items-center gap-4">
-          <div className="flex-shrink-0">{service.icon}</div>
-          <h4 className="text-xl font-semibold text-neutral-800 dark:text-white">{service.name}</h4>
-          <span className="ml-auto text-sm font-medium text-neutral-500 dark:text-neutral-400">{service.price}</span>
-        </div>
-
-        {service.description && (
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            {service.description}
-          </p>
-        )}
-
-        {/* Rating */}
-        {renderStars(service.rating)}
-
-        <p className="text-xs text-neutral-500 dark:text-neutral-400">
-          Rezervă acum o programare pentru acest serviciu.
-        </p>
-
-        {/* Butonul */}
-        <a
-          href="/programare"
-          className="self-start px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold text-sm hover:from-pink-600 hover:to-purple-700 transition-all focus:outline-none focus:ring-4 focus:ring-pink-300 dark:focus:ring-pink-700"
-          aria-label={`Rezervă ${service.name}`}
+      {/* Servicii și prețuri */}
+      <div className="max-w-6xl mx-auto " id="action">
+        <motion.h3
+          className="text-2xl sm:text-3xl font-bold text-center mb-10 tracking-tight mb-20  "
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         >
-          Programează-te
-        </a>
-      </motion.div>
-    ))}
-  </div>
-</div>
+          Servicii și Prețuri
+        </motion.h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="p-6 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 cursor-pointer flex flex-col gap-4 shadow-sm hover:shadow-xl transition-shadow mx-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              viewport={{ once: true }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Serviciu: ${service.name}, Durata: ${service.duration}, Preț: ${service.price}`}
+            >
+              <div className="flex items-center gap-4">
+                <div className="text-indigo-500 text-3xl">{service.icon}</div>
+                <h4 className="text-xl font-semibold text-neutral-800 dark:text-white">
+                  {service.name}
+                </h4>
+                <span className="ml-auto text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                  {service.duration}
+                </span>
+              </div>
+
+              <p className="text-lg font-bold text-indigo-400 dark:text-indigo-400">
+                {service.price}
+              </p>
+
+              {service.description && (
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  {service.description}
+                </p>
+              )}
+
+              {renderStars(service.rating)}
+
+              <a
+                href="https://mero.ro/p/florin-stan?absp=company_details_deeplink&campaignId=&campaignSource="
+                target="_blank"
+                className="self-start px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-pink-600 text-white font-semibold text-sm hover:from-indigo-600 hover:to-pink-700 transition-all focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-pink-700"
+                aria-label={`Rezervă ${service.name}`}
+                style={{ backgroundImage: "linear-gradient(to right, rgb(43,127,255), rgb(61,46,8))", }}
+              >
+                Programează-te
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
